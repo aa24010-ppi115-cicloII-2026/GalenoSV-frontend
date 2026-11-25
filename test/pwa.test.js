@@ -2,9 +2,9 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import vm from "node:vm";
 import { expect } from "chai";
 
-const manifest = JSON.parse(readFileSync(new URL("../manifest.json", import.meta.url), "utf8"));
-const serviceWorker = readFileSync(new URL("../service-worker.js", import.meta.url), "utf8");
-const index = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+const manifest = JSON.parse(readFileSync(new URL("../src/manifest.json", import.meta.url), "utf8"));
+const serviceWorker = readFileSync(new URL("../src/service-worker.js", import.meta.url), "utf8");
+const index = readFileSync(new URL("../src/index.html", import.meta.url), "utf8");
 const cssComponentes = [
   "base", "app-busqueda", "app-consulta", "app-dashboard", "app-login", "app-shell",
   "asistente-citas", "cita-card", "linea-pasos", "pwa-instalar", "ticket-cita",
@@ -29,7 +29,7 @@ describe("manifest PWA", () => {
     expect(tamanos).to.include("192x192");
     expect(tamanos).to.include("512x512");
     for (const icono of manifest.icons) {
-      expect(existsSync(new URL(`../${icono.src}`, import.meta.url)), icono.src).to.be.true;
+      expect(existsSync(new URL(`../src/${icono.src}`, import.meta.url)), icono.src).to.be.true;
     }
   });
 
@@ -38,7 +38,7 @@ describe("manifest PWA", () => {
     expect(formatos).to.include("wide");
     expect(formatos).to.include("narrow");
     for (const captura of manifest.screenshots) {
-      expect(existsSync(new URL(`../${captura.src}`, import.meta.url)), captura.src).to.be.true;
+      expect(existsSync(new URL(`../src/${captura.src}`, import.meta.url)), captura.src).to.be.true;
     }
   });
 
@@ -46,7 +46,7 @@ describe("manifest PWA", () => {
     expect(index).to.contain('type="module" src="js/app.js"');
     expect(index).to.contain("<app-shell>");
     // Cada módulo de js/, en cualquier carpeta, debe quedar guardado para abrir la app sin conexión.
-    const modulos = readdirSync(new URL("../js/", import.meta.url), { recursive: true })
+    const modulos = readdirSync(new URL("../src/js/", import.meta.url), { recursive: true })
       .filter((ruta) => ruta.endsWith(".js"))
       .map((ruta) => `"./js/${ruta.split("\\").join("/")}"`);
     expect(modulos).to.have.length.above(20);
@@ -63,13 +63,13 @@ describe("manifest PWA", () => {
     const precargas = [...index.matchAll(/rel="modulepreload" href="([^"]+)"/g)].map(([, ruta]) => ruta);
     expect(precargas).to.have.length.above(20);
     for (const ruta of precargas) {
-      expect(existsSync(new URL(`../${ruta}`, import.meta.url)), ruta).to.be.true;
+      expect(existsSync(new URL(`../src/${ruta}`, import.meta.url)), ruta).to.be.true;
     }
   });
 
   it("usa hojas externas por componente y las precarga para la primera visita sin conexión", () => {
     for (const nombre of cssComponentes) {
-      expect(existsSync(new URL(`../css/componentes/${nombre}.css`, import.meta.url)), nombre).to.be.true;
+      expect(existsSync(new URL(`../src/css/componentes/${nombre}.css`, import.meta.url)), nombre).to.be.true;
       expect(serviceWorker).to.contain(`./css/componentes/${nombre}.css`);
     }
   });
@@ -92,7 +92,7 @@ describe("actualización de la PWA", () => {
   };
 
   it("recarga una sola vez cuando una versión nueva toma el control de la página", async () => {
-    const { recargarAlActualizar } = await import("../js/pwa.js");
+    const { recargarAlActualizar } = await import("../src/js/pwa.js");
     const sw = swFalso({});
     let recargas = 0;
     recargarAlActualizar(sw, () => recargas++);
@@ -102,7 +102,7 @@ describe("actualización de la PWA", () => {
   });
 
   it("no recarga en la primera instalación, cuando aún no había versión anterior", async () => {
-    const { recargarAlActualizar } = await import("../js/pwa.js");
+    const { recargarAlActualizar } = await import("../src/js/pwa.js");
     const sw = swFalso(null);
     let recargas = 0;
     recargarAlActualizar(sw, () => recargas++);

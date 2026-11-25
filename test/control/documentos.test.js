@@ -6,7 +6,7 @@ import {
   indicacionesDocumento,
   mensajeFormatoDocumento,
   tipoDocumentoElegido,
-} from "../../js/control/documentos.js";
+} from "../../src/js/control/documentos.js";
 
 describe("documentos.js", () => {
   let datos;

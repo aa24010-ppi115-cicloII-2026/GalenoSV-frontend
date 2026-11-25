@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { buscarPorId, filasDonde, mismoId } from "../../js/control/tablas.js";
+import { buscarPorId, filasDonde, mismoId } from "../../src/js/control/tablas.js";
 
 /** Tabla que cuenta cuántas veces se lee alguna de sus filas. */
 function tablaContada(filas) {

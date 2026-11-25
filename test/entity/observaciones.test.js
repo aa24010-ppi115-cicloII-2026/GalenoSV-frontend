@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { leerObservaciones, serializarObservaciones } from "../../js/entity/observaciones.js";
+import { leerObservaciones, serializarObservaciones } from "../../src/js/entity/observaciones.js";
 
 describe("observaciones.js", () => {
   it("interpreta y serializa las notas, el diagnóstico y el plan", () => {

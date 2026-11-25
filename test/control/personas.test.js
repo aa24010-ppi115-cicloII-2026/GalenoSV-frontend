@@ -1,8 +1,8 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { datosBase } from "../ayudas.js";
-import { personaDeDocumento, clinicasDePaciente, empleadoDePersona, pacientesDeClinica, edadDe } from "../../js/control/personas.js";
-import { documentoDe } from "../../js/control/documentos.js";
+import { personaDeDocumento, clinicasDePaciente, empleadoDePersona, pacientesDeClinica, edadDe } from "../../src/js/control/personas.js";
+import { documentoDe } from "../../src/js/control/documentos.js";
 
 describe("personas.js", () => {
   let datos;

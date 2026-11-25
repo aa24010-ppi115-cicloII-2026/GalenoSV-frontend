@@ -1,7 +1,7 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { esperar } from "../../ayudas.js";
-import { cargarTodo } from "../../../js/control/repositorio.js";
+import { cargarTodo } from "../../../src/js/control/repositorio.js";
 import { usarDom, montar, sinRed, dom, datos } from "../entorno-dom.js";
 
 describe("app-busqueda · HU1", () => {

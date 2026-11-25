@@ -1,5 +1,6 @@
-const CACHE = "galenosv-v77";
+const CACHE = "galenosv-v78";
 const API = "http://localhost:9080";
+const RUTA_API_PROXY = "/galeno/api";
 const RECURSOS = [
   "./",
   "./index.html",
@@ -142,7 +143,7 @@ self.addEventListener("fetch", (evento) => {
   const peticion = evento.request;
   if (peticion.method !== "GET") return;
   const url = new URL(peticion.url);
-  if (url.origin === API) {
+  if (url.origin === API || (url.origin === self.location.origin && url.pathname.startsWith(RUTA_API_PROXY))) {
     evento.respondWith(redPrimero(peticion, { marcarSinConexion: true }));
     return;
   }

@@ -1,5 +1,5 @@
 import sinon from "sinon";
-import { FUENTES, CAMPO_ID } from "../js/entity/recursos.js";
+import { FUENTES, CAMPO_ID } from "../src/js/entity/recursos.js";
 
 export function datosBase() {
   return {

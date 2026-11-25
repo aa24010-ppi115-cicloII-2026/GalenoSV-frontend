@@ -1,9 +1,9 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { datosBase, stubApi, esperar } from "../../ayudas.js";
-import { guardarSesion } from "../../../js/control/sesion.js";
-import { listarPendientes, encolar } from "../../../js/control/pendientes.js";
-import DefaultService from "../../../js/control/default-service.js";
+import { guardarSesion } from "../../../src/js/control/sesion.js";
+import { listarPendientes, encolar } from "../../../src/js/control/pendientes.js";
+import DefaultService from "../../../src/js/control/default-service.js";
 import { usarDom, montar, sinRed, conRed, dom, SESION_ENFERMERO } from "../entorno-dom.js";
 
 describe("app-shell", () => {

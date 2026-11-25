@@ -1,8 +1,8 @@
 import { expect } from "chai";
-import { mismoId } from "../../js/control/tablas.js";
-import { conteoDePasos, estadoDeCita } from "../../js/control/citas.js";
-import { esRolPaciente } from "../../js/control/personas.js";
-import { cantidad } from "../../js/comun/texto.js";
+import { mismoId } from "../../src/js/control/tablas.js";
+import { conteoDePasos, estadoDeCita } from "../../src/js/control/citas.js";
+import { esRolPaciente } from "../../src/js/control/personas.js";
+import { cantidad } from "../../src/js/comun/texto.js";
 
 describe("ayudas compartidas de control", () => {
   it("mismoId compara como texto sin convertir la ausencia en cero", () => {

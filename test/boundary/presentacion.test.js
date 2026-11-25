@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { etiquetaPaso } from "../../js/boundary/presentacion.js";
+import { etiquetaPaso } from "../../src/js/boundary/presentacion.js";
 
 describe("presentacion.js", () => {
   it("traduce el estado interno del paso a un texto legible", () => {

@@ -1,9 +1,9 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { stubApi, esperar } from "../../ayudas.js";
-import { limpiarCache } from "../../../js/control/repositorio.js";
-import { listarPendientes, sincronizar } from "../../../js/control/pendientes.js";
-import { ejecutarPendiente } from "../../../js/control/api.js";
+import { limpiarCache } from "../../../src/js/control/repositorio.js";
+import { listarPendientes, sincronizar } from "../../../src/js/control/pendientes.js";
+import { ejecutarPendiente } from "../../../src/js/control/api.js";
 import { usarDom, sinRed, conRed, dom, datos, SESION_ENFERMERO } from "../entorno-dom.js";
 
 describe("app-consulta · HU4", () => {

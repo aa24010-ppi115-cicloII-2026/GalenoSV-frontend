@@ -1,7 +1,7 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { datosBase, stubApi } from "../ayudas.js";
-import { cargarTodo, limpiarCache, aplicarPendientes } from "../../js/control/repositorio.js";
+import { cargarTodo, limpiarCache, aplicarPendientes } from "../../src/js/control/repositorio.js";
 
 describe("repositorio.js", () => {
   let datos;

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { CODIGOS_CIE10 } from "../../js/entity/cie10.js";
+import { CODIGOS_CIE10 } from "../../src/js/entity/cie10.js";
 
 describe("cie10.js", () => {
   it("cada código del catálogo tiene formato CIE-10, descripción y no se repite", () => {

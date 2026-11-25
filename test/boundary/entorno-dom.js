@@ -9,7 +9,7 @@
 import { JSDOM } from "jsdom";
 import sinon from "sinon";
 import { datosBase, stubApi } from "../ayudas.js";
-import { limpiarCache } from "../../js/control/repositorio.js";
+import { limpiarCache } from "../../src/js/control/repositorio.js";
 
 export const SESION_ENFERMERO = {
   idPersona: 300,
@@ -39,21 +39,21 @@ let carga = null;
 /** Importa los componentes una vez, con la ventana ya expuesta como global. */
 function cargarComponentes() {
   carga ??= (async () => {
-    ({ Vista, definirElemento, configurarEstilos } = await import("../../js/boundary/base.js"));
+    ({ Vista, definirElemento, configurarEstilos } = await import("../../src/js/boundary/base.js"));
     configurarEstilos({
-      base: new URL("../../css/componentes/base.css", import.meta.url).href,
-      directorio: new URL("../../css/componentes/", import.meta.url).href,
+      base: new URL("../../src/css/componentes/base.css", import.meta.url).href,
+      directorio: new URL("../../src/css/componentes/", import.meta.url).href,
     });
-    await import("../../js/boundary/componentes/ui-toast.js");
-    await import("../../js/boundary/componentes/ui-autocompletar.js");
-    ({ documentoImprimible } = await import("../../js/boundary/componentes/ticket-cita.js"));
-    await import("../../js/boundary/componentes/cita-card.js");
-    await import("../../js/boundary/componentes/app-login.js");
-    await import("../../js/boundary/componentes/app-busqueda.js");
-    await import("../../js/boundary/componentes/app-dashboard.js");
-    await import("../../js/boundary/componentes/app-consulta.js");
-    await import("../../js/boundary/componentes/app-shell.js");
-    await import("../../js/boundary/componentes/pwa-instalar.js");
+    await import("../../src/js/boundary/componentes/ui-toast.js");
+    await import("../../src/js/boundary/componentes/ui-autocompletar.js");
+    ({ documentoImprimible } = await import("../../src/js/boundary/componentes/ticket-cita.js"));
+    await import("../../src/js/boundary/componentes/cita-card.js");
+    await import("../../src/js/boundary/componentes/app-login.js");
+    await import("../../src/js/boundary/componentes/app-busqueda.js");
+    await import("../../src/js/boundary/componentes/app-dashboard.js");
+    await import("../../src/js/boundary/componentes/app-consulta.js");
+    await import("../../src/js/boundary/componentes/app-shell.js");
+    await import("../../src/js/boundary/componentes/pwa-instalar.js");
   })();
   return carga;
 }

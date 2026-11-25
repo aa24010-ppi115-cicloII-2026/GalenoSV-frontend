@@ -1,8 +1,8 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { esperar } from "../../ayudas.js";
-import { leerSesion } from "../../../js/control/sesion.js";
-import { limpiarCache } from "../../../js/control/repositorio.js";
+import { leerSesion } from "../../../src/js/control/sesion.js";
+import { limpiarCache } from "../../../src/js/control/repositorio.js";
 import { usarDom, montar, dom, datos, SESION_ENFERMERO } from "../entorno-dom.js";
 
 describe("app-dashboard · HU3", () => {

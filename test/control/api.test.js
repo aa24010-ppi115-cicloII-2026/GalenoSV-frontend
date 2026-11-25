@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { listarPendientes } from "../../js/control/pendientes.js";
-import { comprobarServicio, servicioNoResponde } from "../../js/control/api.js";
-import DefaultService from "../../js/control/default-service.js";
+import { listarPendientes } from "../../src/js/control/pendientes.js";
+import { comprobarServicio, servicioNoResponde } from "../../src/js/control/api.js";
+import DefaultService from "../../src/js/control/default-service.js";
 
 const respuestaJson = (cuerpo, estado = 200, cabeceras = {}) =>
   new Response(JSON.stringify(cuerpo), {

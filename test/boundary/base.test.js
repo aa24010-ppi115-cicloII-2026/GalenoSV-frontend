@@ -88,9 +88,9 @@ describe("Vista · clase base de los componentes", () => {
     });
 
     it("precargarEstilos descarga la base y la hoja de cada componente antes de registrarlos", async () => {
-      const { precargarEstilos } = await import("../../js/boundary/base.js");
-      const base = new URL("../../css/componentes/base.css", import.meta.url).href;
-      const propia = new URL("../../css/componentes/prueba-precarga.css", import.meta.url).href;
+      const { precargarEstilos } = await import("../../src/js/boundary/base.js");
+      const base = new URL("../../src/css/componentes/base.css", import.meta.url).href;
+      const propia = new URL("../../src/css/componentes/prueba-precarga.css", import.meta.url).href;
       cssEn(base, "* { box-sizing: border-box; }");
       cssEn(propia, ".a { color: red; }");
       await precargarEstilos(["prueba-precarga"]);
@@ -105,8 +105,8 @@ describe("Vista · clase base de los componentes", () => {
     });
 
     it("si una hoja no se puede descargar lo avisa en consola sin bloquear la aplicación", async () => {
-      const { precargarEstilos } = await import("../../js/boundary/base.js");
-      const rota = new URL("../../css/componentes/prueba-rota.css", import.meta.url).href;
+      const { precargarEstilos } = await import("../../src/js/boundary/base.js");
+      const rota = new URL("../../src/css/componentes/prueba-rota.css", import.meta.url).href;
       fetch.withArgs(rota).resolves(new Response("", { status: 404 }));
       const consola = sinon.stub(console, "error");
       await precargarEstilos(["prueba-rota"]);

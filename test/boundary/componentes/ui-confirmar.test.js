@@ -5,7 +5,7 @@ describe("ui-confirmar", () => {
   usarDom();
 
   it("ui-confirmar enfoca Cancelar, mantiene el foco dentro con Tab y Escape cancela", async () => {
-    const { confirmar } = await import("../../../js/boundary/componentes/ui-confirmar.js");
+    const { confirmar } = await import("../../../src/js/boundary/componentes/ui-confirmar.js");
     const respuesta = confirmar({ titulo: "¿Seguro?", aceptar: "Sí" });
     const raiz = document.querySelector("ui-confirmar").shadowRoot;
     expect(raiz.querySelector("[role=alertdialog]").getAttribute("aria-modal")).to.equal("true");
@@ -21,9 +21,9 @@ describe("ui-confirmar", () => {
   });
 
   it("ui-confirmar acepta un mensaje con formato además de texto plano", async () => {
-    const { confirmar } = await import("../../../js/boundary/componentes/ui-confirmar.js");
-    const { fragmento } = await import("../../../js/boundary/base.js");
-    const { html } = await import("../../../js/comun/texto.js");
+    const { confirmar } = await import("../../../src/js/boundary/componentes/ui-confirmar.js");
+    const { fragmento } = await import("../../../src/js/boundary/base.js");
+    const { html } = await import("../../../src/js/comun/texto.js");
     confirmar({ titulo: "¿Retroceder?", mensaje: fragmento(html`Se reabre <strong>${"Profilaxis <b>"}</strong>.`) });
     const mensaje = document.querySelector("ui-confirmar").shadowRoot.querySelector("#mensaje");
     expect(mensaje.querySelector("strong").textContent).to.equal("Profilaxis <b>");

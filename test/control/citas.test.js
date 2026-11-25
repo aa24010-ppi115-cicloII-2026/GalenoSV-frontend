@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { datosBase } from "../ayudas.js";
-import { edadDe } from "../../js/control/personas.js";
-import { pasosDeProcedimiento, pasosConRegistros, resumenCita, citasDePaciente, citasDeEmpleado, examenesAsignables, estadoDeCita } from "../../js/control/citas.js";
+import { edadDe } from "../../src/js/control/personas.js";
+import { pasosDeProcedimiento, pasosConRegistros, resumenCita, citasDePaciente, citasDeEmpleado, examenesAsignables, estadoDeCita } from "../../src/js/control/citas.js";
 
 describe("citas.js", () => {
   let datos;

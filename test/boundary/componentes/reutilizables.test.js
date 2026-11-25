@@ -19,7 +19,7 @@ describe("reutilizables · punto de entrada de los controles", () => {
   });
 
   it("los controles reutilizables exponen sus piezas con part para darles estilo desde fuera", async () => {
-    await import("../../../js/boundary/componentes/linea-pasos.js");
+    await import("../../../src/js/boundary/componentes/linea-pasos.js");
     const partes = (elemento) => [...elemento.shadowRoot.querySelectorAll("[part]")].map((nodo) => nodo.getAttribute("part"));
 
     const buscador = montar("ui-autocompletar", { opciones: [{ valor: "a", texto: "Alfa" }] });
@@ -33,7 +33,7 @@ describe("reutilizables · punto de entrada de los controles", () => {
     avisos.mostrar("Guardado", { tipo: "ok" });
     expect(partes(avisos)).to.deep.equal(["aviso ok"]);
 
-    const { confirmar } = await import("../../../js/boundary/componentes/ui-confirmar.js");
+    const { confirmar } = await import("../../../src/js/boundary/componentes/ui-confirmar.js");
     confirmar({ titulo: "¿Seguro?" });
     expect(partes(document.querySelector("ui-confirmar"))).to.include.members(["dialogo", "boton cancelar", "boton aceptar"]);
 

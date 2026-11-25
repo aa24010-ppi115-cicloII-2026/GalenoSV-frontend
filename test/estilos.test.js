@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { expect } from "chai";
 import { usarDom } from "./boundary/entorno-dom.js";
 
-const principal = readFileSync(new URL("../css/principal.css", import.meta.url), "utf8");
+const principal = readFileSync(new URL("../src/css/principal.css", import.meta.url), "utf8");
 
 /** Nombres de las variables de color declaradas en un bloque de principal.css. */
 function coloresDe(selector) {
@@ -26,8 +26,8 @@ describe("estilos · tema oscuro", () => {
     usarDom();
 
     it("la precarga incluye la hoja de cada componente que existe en css/componentes", async () => {
-      const { COMPONENTES_CON_ESTILO } = await import("../js/configuracion-estilos.js");
-      const archivos = readdirSync(new URL("../css/componentes/", import.meta.url))
+      const { COMPONENTES_CON_ESTILO } = await import("../src/js/configuracion-estilos.js");
+      const archivos = readdirSync(new URL("../src/css/componentes/", import.meta.url))
         .filter((archivo) => archivo.endsWith(".css") && archivo !== "base.css")
         .map((archivo) => archivo.replace(/\.css$/, ""));
       expect(COMPONENTES_CON_ESTILO).to.have.members(archivos);

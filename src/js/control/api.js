@@ -6,8 +6,8 @@
 import { encolar, estaConectado } from "./pendientes.js";
 import DefaultError from "../entity/default-error.js";
 
-/** Raíz de la API REST del backend. */
-export const API = "http://localhost:9080/GalenoSV-1.0-SNAPSHOT/api";
+/** Raíz de la API REST del backend (enlazada vía proxy inverso Nginx hacia http://galeno.backend:9080/galeno). */
+export const API = "/galeno/api";
 
 const METODOS_DE_CAMBIO = ["POST", "PUT", "DELETE"];
 

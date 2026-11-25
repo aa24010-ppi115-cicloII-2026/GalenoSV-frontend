@@ -4,11 +4,11 @@
  * pruebas de unidad: `npm run test:integracion`.
  */
 import { expect } from "chai";
-import { API } from "../../js/control/api.js";
-import { servicios } from "../../js/control/servicios.js";
-import { RECURSOS } from "../../js/entity/recursos.js";
-import DefaultResponse from "../../js/entity/default-response.js";
-import DefaultError from "../../js/entity/default-error.js";
+import { API } from "../../src/js/control/api.js";
+import { servicios } from "../../src/js/control/servicios.js";
+import { RECURSOS } from "../../src/js/entity/recursos.js";
+import DefaultResponse from "../../src/js/entity/default-response.js";
+import DefaultError from "../../src/js/entity/default-error.js";
 
 describe("servicios contra la API real", function () {
   this.timeout(20000);

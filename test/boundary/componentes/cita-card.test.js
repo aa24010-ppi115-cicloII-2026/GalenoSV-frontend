@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
 import { datosBase } from "../../ayudas.js";
-import { resumenCita } from "../../../js/control/citas.js";
+import { resumenCita } from "../../../src/js/control/citas.js";
 import { usarDom, montar, SESION_ENFERMERO } from "../entorno-dom.js";
 
 describe("cita-card", () => {

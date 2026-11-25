@@ -6,7 +6,7 @@ import {
   actualizarSesion,
   cerrarSesion,
   alCambiarSesion,
-} from "../../js/control/sesion.js";
+} from "../../src/js/control/sesion.js";
 
 describe("sesion.js", () => {
   let dom;

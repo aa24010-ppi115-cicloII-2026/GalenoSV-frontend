@@ -7,7 +7,7 @@ import {
   quitarPendiente,
   sincronizar,
   estaConectado,
-} from "../../js/control/pendientes.js";
+} from "../../src/js/control/pendientes.js";
 
 describe("pendientes.js", () => {
   let dom;

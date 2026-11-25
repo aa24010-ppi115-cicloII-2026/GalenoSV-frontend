@@ -1,7 +1,7 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import { datosBase, esperar } from "../../ayudas.js";
-import { consultaCompleta, resumenCita } from "../../../js/control/citas.js";
+import { consultaCompleta, resumenCita } from "../../../src/js/control/citas.js";
 import { usarDom, montar, dom, documentoImprimible } from "../entorno-dom.js";
 
 describe("ticket-cita", () => {
@@ -72,7 +72,7 @@ describe("ticket-cita", () => {
 
         const fila = montar("ticket-cita", { cita: conPendiente }).shadowRoot.querySelector("tbody tr");
         expect([...fila.cells].map((celda) => celda.textContent).slice(2, 4)).to.deep.equal(["Pendiente", "Pendiente"]);
-        const { pasosParaPresentacion } = await import("../../../js/boundary/presentacion.js");
+        const { pasosParaPresentacion } = await import("../../../src/js/boundary/presentacion.js");
         const linea = montar("linea-pasos", { pasos: pasosParaPresentacion([pendiente]) }).shadowRoot;
         expect(linea.querySelector(".quien").textContent).to.equal("Pendiente");
         expect(linea.querySelector("details.registro")).to.be.null;

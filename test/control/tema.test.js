@@ -1,6 +1,6 @@
 import { JSDOM } from "jsdom";
 import { expect } from "chai";
-import { CLAVE_TEMA, temaActual, elegirTema, alternarTema, alCambiarTema } from "../../js/control/tema.js";
+import { CLAVE_TEMA, temaActual, elegirTema, alternarTema, alCambiarTema } from "../../src/js/control/tema.js";
 
 describe("tema.js", () => {
   let dom;

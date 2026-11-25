@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { API } from "../../js/control/api.js";
-import DefaultService from "../../js/control/default-service.js";
-import DefaultResponse from "../../js/entity/default-response.js";
-import DefaultError from "../../js/entity/default-error.js";
+import { API } from "../../src/js/control/api.js";
+import DefaultService from "../../src/js/control/default-service.js";
+import DefaultResponse from "../../src/js/entity/default-response.js";
+import DefaultError from "../../src/js/entity/default-error.js";
 
 const respuestaJson = (cuerpo, estado = 200, cabeceras = {}) =>
   new Response(JSON.stringify(cuerpo), {
